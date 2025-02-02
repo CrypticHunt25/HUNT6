@@ -1,113 +1,104 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cryptic Hunt 2 - Step 2</title>
+    <title>Step 3: Caesar Cipher Puzzle</title>
     <style>
         body {
-            background-image: url('https://i.pinimg.com/736x/47/bd/49/47bd49e1b212f0fb1a5de3aa7accd189.jpg'); /* Replace with hosted link */
+            background-image: url('https://i.pinimg.com/736x/66/7b/a4/667ba4b229e90f72a9a80cb8f603ab66.jpg');
             background-size: cover;
-            background-attachment: fixed;
-            font-family: 'Poppins', sans-serif;
-            color: #f0f8ff;
-            text-align: center;
+            color: #f5deb3;
+            font-family: 'Georgia', serif;
             margin: 0;
             padding: 0;
         }
-        .greeting {
-            margin-top: 20px;
-            font-size: 2.5rem;
-            animation: fadeIn 2s ease-in-out;
-            color: #ffdf00;
-            text-shadow: 2px 2px 4px #000;
+        .container {
+            text-align: center;
+            padding: 50px;
         }
-        .emoji {
-            font-size: 3rem;
-            animation: bounce 2s infinite;
-        }
-        .puzzle-container {
-            margin: 20px auto;
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 15px;
-            padding: 20px;
-            font-size: 1.5rem;
-            width: 80%;
-            max-width: 700px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-            color: #f0e68c;
-        }
-        img {
-            max-width: 300px;
-            margin: 20px 0;
-        }
-        input[type="text"] {
-            margin-top: 15px;
-            font-size: 1.2rem;
-            padding: 10px;
-            border-radius: 10px;
-            border: 1px solid #f0e68c;
-            width: 60%;
-            max-width: 400px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        button {
-            margin-top: 15px;
-            padding: 10px 20px;
-            font-size: 1.2rem;
-            border: none;
-            border-radius: 10px;
-            background-color: #6a5acd;
-            color: white;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-        button:hover {
-            background-color: #483d8b;
+        .welcome {
+            font-size: 2rem;
+            color: #ffd700;
+            text-shadow: 2px 2px 5px #000;
+            animation: fadeIn 2s;
         }
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        .puzzle {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            box-shadow: 0 0 20px #ffd700;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 20px #ffd700; }
+            50% { box-shadow: 0 0 30px #ff4500; }
+            100% { box-shadow: 0 0 20px #ffd700; }
+        }
+        .puzzle p {
+            font-size: 1.2rem;
+        }
+        input[type="text"] {
+            width: 50%;
+            padding: 10px;
+            border-radius: 10px;
+            border: 2px solid #ffd700;
+            font-size: 1rem;
+            background: rgba(0, 0, 0, 0.6);
+            color: #ffd700;
+            outline: none;
+            transition: box-shadow 0.3s;
+        }
+        input[type="text"]:focus {
+            box-shadow: 0 0 10px #ff4500;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 10px;
+            background: #ff4500;
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 0 0 10px #ffd700;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #ffd700;
+            color: #000;
         }
     </style>
     <script>
-        document.addEventListener("contextmenu", function(e) {
-            e.preventDefault();
-        });
-
+        document.addEventListener("contextmenu", (e) => e.preventDefault());
         function checkAnswer() {
-            const answer = document.getElementById("answer").value.toLowerCase();
-            if (answer === "4 pm") {
-                window.location.href = "step3.html"; // Replace with the actual hosted link for step 3
+            const input = document.getElementById('answer').value.trim().toLowerCase();
+            if (input === "this is the parseltongue’s speech") {
+                alert("Correct! Proceeding to the next step.");
+                window.location.href = "step4.html";
             } else {
-                alert("Incorrect! Try again.");
+                alert("Incorrect answer. Try again!");
             }
         }
     </script>
 </head>
 <body>
-    <div class="greeting">
-        The Magical Cryptic Hunt Continues! 🪄✨<br>
-        <span class="emoji">⚡🏆✨</span>
+    <div class="container">
+        <div class="welcome">✨ Well done! You've advanced to Step 3! ✨</div>
+        <div class="puzzle">
+            <p><strong>Clue:</strong></p>
+            <p>"Wklv lv wkh sduvhoqlkdrb’v vshhfk"</p>
+            <p><strong>Hint:</strong> "Slytherin’s heir could understand, shift three steps to make it grand."</p>
+            <input type="text" id="answer" placeholder="Enter your answer here">
+            <br>
+            <button onclick="checkAnswer()">Submit</button>
+        </div>
     </div>
-    <div class="puzzle-container">
-        <p> solve the numeric puzzle:</p>
-       <!-- <img src="https://i.pinimg.com/474x/00/29/42/0029420d0e686b6d74a63d850a383009.jpg" alt="Golden Snitch"> <!-- Replace with hosted link -->
-        <p><strong>Numeric Puzzle:</strong></p>
-        <p>
-            "A train leaves Platform 9¾ at exactly 11:00 AM,
-             traveling 300 miles to its destination at Hogwarts.
-             If the train runs at a constant speed of 60 mph,
-             what time does it arrive?"
-        </p>
-    </div>
-    <input type="text" id="answer" placeholder="Enter your answer here...">
-    <br>
-    <button onclick="checkAnswer()">Submit</button>
 </body>
 </html>
