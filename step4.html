@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptic Hunt </title>
+    <style>
+        body {
+            background: url('https://i.pinimg.com/736x/ce/5c/de/ce5cde07f91c62bebe080dab2649ace4.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Georgia', serif;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+            animation: fadeIn 2s;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 15px gold;
+        }
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        .puzzle {
+            margin: 20px 0;
+        }
+        .input-field {
+            padding: 10px;
+            font-size: 1.1rem;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+        }
+        .btn {
+            margin-top: 15px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: #fff;
+            background: #ff6f3c;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+        .btn:hover {
+            background: #ffa62b;
+        }
+        .hidden {
+            display: none;
+        }
+        .success {
+            color: #00ff00;
+            font-size: 1.5rem;
+            margin-top: 15px;
+            text-shadow: 0 0 10px green;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+    <script>
+        function checkAnswer() {
+            const input = document.getElementById('answer').value.trim().toLowerCase();
+            const correctAnswer = "map2346";
+
+            if (input === correctAnswer) {
+                document.getElementById('feedback').textContent = "Correct! Proceed to the next step.";
+                document.getElementById('feedback').className = "success";
+                setTimeout(() => {
+                    window.location.href = "step5.html"; // Link to Step 3
+                }, 2000);
+            } else {
+                alert("Incorrect answer. Try again!");
+            }
+        }
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.addEventListener('keydown', event => {
+            if (event.key === 'F12' || (event.ctrlKey && event.shiftKey && event.key === 'I'.toLowerCase())) {
+                event.preventDefault();
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Step 2: Image and Numeric Puzzle</h1>
+        <p>"I am a four-digit number:</p>
+        <div class="puzzle">
+            <p>-The sum of my digits is 15.<br>
+               - My tens digit is twice my thousands digit.<br>
+               - My hundreds digit is 1 more than my thousands digit.<br>
+               -My thousands digit is the smallest prime number.<br>
+               -What number am I?" <br>
+              Combine it with the image answer to proceed."
+            </p>
+            <img src="https://i.pinimg.com/736x/46/19/6c/46196cdaacc9add432686179849d35c9.jpg" alt="Marauders Map" width="200" style="margin-top: 15px;">
+        </div>
+        <input id="answer" class="input-field" type="text" placeholder="Your Answer" />
+        <button class="btn" onclick="checkAnswer()">Submit</button>
+        <p id="feedback" class="hidden"></p>
+    </div>
+</body>
+</html>
